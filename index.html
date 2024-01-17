@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan lekcji środa</title>
+
+    <script type="text/javascript">
+        function odliczanie() {
+            //typ zmiennej jest automatycznie inicjowany przez przeglądarkę więc nie musimy "mówić" czy to jest liczba, napis, itp.
+            var dzisiaj = new Date(); //obiekt klasy date który zawiera pełny zestaw inf pobranych z systemu operacyjnego naszego komp
+            var dzien = dzisiaj.getDate(); //zmienna która wyjmuje z obiektu klasy date dzień miesiąca
+            var miesiac = dzisiaj.getMonth() + 1; // tutaj tworzymy zmienną dającą nam numer miesiąca, tylko musimy dodać 1 ponieważ getMonth przyjmuje numery miesięcy od 0 do 11
+            var rok = dzisiaj.getFullYear(); // getFullYear daje nam rok za pomocą 4 cyfr
+
+            var godzina = dzisiaj.getHours();
+            if (godzina < 10) godzina = "0" + godzina;
+
+            var minuta = dzisiaj.getMinutes();
+            if (minuta < 10) minuta = "0" + minuta;
+
+            var sekunda = dzisiaj.getSeconds();
+            if (sekunda < 10) sekunda = "0" + sekunda;
+
+            document.getElementById("zegar").innerHTML = dzien + "/" + miesiac + "/" + rok + "|" + godzina + ":" + minuta + ":" + sekunda;
+            //znajdż element o tym id na element z wewnętrznego html i podmień go na wartość zmiennej dzien (nie robimy w cudzysłowiu bo nie chcemy tekstu dzień tylko wartość tej zmiennej), do sklejania napisów w javascript używamy "/" i nazywa się to konkatenacja i tu operatorem jest +
+            setTimeout("odliczanie()", 1000);
+            // 1000 jest dlatego po o trzeba w milisekundach, więc skoro funkcja ma działać co sekundę, no to musi to być co 1s=1000ms
+        }
+
+    </script>
+
+</head>
+
+<body onload="odliczanie();">
+    <div id="zegar"></div>
+
+    <h1>Plan lekcji</h1>
+    <h2>Środa</h2>
+    <ol>
+        <li>Informatyka</li>
+        <li>Historia </li>
+        <li>Matematyka</li>
+        <li>Fizyka</li>
+        <li>Angielski</li>
+        <li>WF</li>
+        <li>j.polski</li>
+        <li>j.polski</li>
+    </ol>
+
+
+
+
+</body>
+
+</html>
