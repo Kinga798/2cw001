@@ -11,8 +11,13 @@
         function odliczanie() {
             //typ zmiennej jest automatycznie inicjowany przez przeglądarkę więc nie musimy "mówić" czy to jest liczba, napis, itp.
             var dzisiaj = new Date(); //obiekt klasy date który zawiera pełny zestaw inf pobranych z systemu operacyjnego naszego komp
+            
             var dzien = dzisiaj.getDate(); //zmienna która wyjmuje z obiektu klasy date dzień miesiąca
+            if (dzien < 10) dzien = "0" + dzien;
+            
             var miesiac = dzisiaj.getMonth() + 1; // tutaj tworzymy zmienną dającą nam numer miesiąca, tylko musimy dodać 1 ponieważ getMonth przyjmuje numery miesięcy od 0 do 11
+            if (miesiac < 10) miesiac = "0" + miesiac;
+            
             var rok = dzisiaj.getFullYear(); // getFullYear daje nam rok za pomocą 4 cyfr
 
             var godzina = dzisiaj.getHours();
